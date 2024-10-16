@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from 'react';
+import ProductList from './productlist.js';
+import Cart from './Cart.js';
+import './App.css'; // Assuming you have a CSS file for styling
+
+const App = () => {
+  const products = [
+    // You can add products here or fetch from an API
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="main-content">
+        <ProductList products={products} />
+        <Cart />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

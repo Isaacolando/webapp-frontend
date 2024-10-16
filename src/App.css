@@ -1,38 +1,109 @@
-.App {
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Main content: Flexbox layout for product grid and cart */
+.main-content {
+  display: flex; /* Aligns ProductList and Cart side by side */
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Container for the product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  flex: 3; /* Make the product grid take up more space */
+}
+
+/* Individual product item styling */
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
   text-align: center;
+  padding: 16px;
+  transition: box-shadow 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.product-item:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Product image */
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Product name styling */
+.product-item h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* Price styling */
+.product-item p {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* Add to Cart button */
+.product-item button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.product-item button:hover {
+  background-color: #ff4500;
+}
+
+/* Cart styling */
+.cart {
+  flex: 1; /* Make the cart smaller than the product grid */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+/* Cart item list */
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart li {
+  margin-bottom: 16px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.cart img {
+  max-width: 50px;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Clear floats (if using floats for layout) */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
